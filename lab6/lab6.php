@@ -68,10 +68,10 @@ class Division extends Operation {
 
 
 // Some debugs - un comment them to see what is happening...
-echo '$_POST print_r=>',print_r($_POST);
-echo "<br>",'$_POST vardump=>',var_dump($_POST);
-echo '<br/>$_POST is ', (isset($_POST) ? 'set' : 'NOT set'), "<br/>";
-echo "<br/>---";
+//echo '$_POST print_r=>',print_r($_POST);
+//echo "<br>",'$_POST vardump=>',var_dump($_POST);
+//echo '<br/>$_POST is ', (isset($_POST) ? 'set' : 'NOT set'), "<br/>";
+//echo "<br/>---";
 
 
 
