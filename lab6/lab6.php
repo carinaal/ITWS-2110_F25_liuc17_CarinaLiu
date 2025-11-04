@@ -140,7 +140,7 @@ class Division extends Operation {
     } 
   ?>
   </pre>
-  <form method="post" action="lab6start.php">
+  <form method="post" action="lab6.php">
     <input type="text" name="op1" id="op1" value="" />
     <input type="text" name="op2" id="op2" value="" />
     <br/>
