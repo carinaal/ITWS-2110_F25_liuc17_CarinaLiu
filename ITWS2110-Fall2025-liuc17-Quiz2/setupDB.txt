@@ -1,0 +1,161 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 03, 2025 at 04:28 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `itws2110-fall2025-liuc17-quiz2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projectmembership`
+--
+
+CREATE TABLE `projectmembership` (
+  `projectId` int(11) NOT NULL,
+  `memberId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `projectmembership`
+--
+
+INSERT INTO `projectmembership` (`projectId`, `memberId`) VALUES
+(1, 4),
+(1, 10),
+(1, 11),
+(2, 1),
+(2, 3),
+(2, 9),
+(3, 5),
+(3, 7),
+(3, 12),
+(4, 2),
+(4, 6),
+(4, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `projectId` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`projectId`, `name`, `description`) VALUES
+(1, 'Campus Event Planner', 'A simple web tool that allows students to propose, organize, and promote campus events. The system tracks event details, required resources, and assigned organizers.'),
+(2, 'Study Group Matcher', 'A platform that matches students based on courses, study habits, and schedule preferences. Students can create or join study groups and share notes.'),
+(3, 'Dorm Maintenance Tracker', 'A reporting dashboard for students to submit, view, and track dorm maintenance issues. Includes categories for electrical, plumbing, heating, and general repairs.'),
+(4, 'Meal Prep Assistant', 'A recipe and grocery-planning tool that helps students create weekly meal plans, generate shopping lists, and track pantry items.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `userId` int(11) NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `nickName` varchar(50) DEFAULT NULL,
+  `passwordSalt` varchar(255) NOT NULL,
+  `passwordHash` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userId`, `firstName`, `lastName`, `nickName`, `passwordSalt`, `passwordHash`) VALUES
+(1, 'Carina', 'Liu', 'rin', '1155161633692f8520cb4fa5.32140632', '2f29125c19006babf3981ac5216a6e29063cdb417fbcf3bbd3bd9e4f55b6ac5c'),
+(2, 'John', 'Smith', 'john', '1053600486692f85f4c6aa40.94899450', '4696e22a9e15fe95a85a88de1392c603b3041e5cec24c8b6fcaf4f713705c098'),
+(3, 'Olivia', 'Li', 'Liv', '1939876141692f9ac5499fa4.13890005', 'd4728ae84cedd3b721bdcf251ea89b706931e9197f06ba0fb024eefcc640fa9d'),
+(4, 'Emma', 'Chan', 'Em', '1075712909692f9ae70e3593.78641043', 'ead73bc4679f1d6d91b6cebef9376392b402bf64c6a8131b883ad4e526c40aca'),
+(5, 'Kevin', 'Peng', 'Kev', '751152632692f9b0a0a77d0.10949786', '46aa3ad4360bf5c6229ec0b419748c02abdeb7fded0db4572c742941534c9576'),
+(6, 'Liam', 'Wang', 'Li', '924910730692f9b63eb1748.64227633', '3190648bd16ea96f5a12f6eaa627b1a63ea8554cb1fd75a1985daa802c2d75f5'),
+(7, 'Amelia', 'Smith', 'Lia', '1423987292692f9b80088095.08592050', '78af811a446afe972f7edbc3f35fc369d8348024740feb6a9aa2ebee4b148b5d'),
+(8, 'Isabella', 'Wang', 'Bella', '1720780057692f9b97cf8966.16225976', 'c0ce49344780a0a4077f6b6506dcaa222bc7149ea58ef0302b248d95198b8599'),
+(9, 'Ria', 'Kim', 'r', '809311612692f9bacaa3f17.47836376', 'ad53a7c428fd484c71b4078948bb5397c8f4124b906664f303788fd78f28e132'),
+(10, 'Noah', 'Devi', 'No', '1456003548692f9bcd201977.82206736', 'e9df3e705f26592ba7f8691bf812213f6142e9144fa9cf02941727331b63e368'),
+(11, 'David', 'Chow', 'Dave', '1822172650692f9bed138a28.35744796', '05ff6119d2f03c926d56549fc3eff6f7e4f7a57684ee26e131df2f2998f9bdaa'),
+(12, 'Evan', 'Liu', 'Ev', '358921037692f9bfd349da7.84532939', '249cceffa36ee68d35d8a06b3e31b7f98c07f6cf2a6fe4cc0c14529dd813671b');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `projectmembership`
+--
+ALTER TABLE `projectmembership`
+  ADD PRIMARY KEY (`projectId`,`memberId`),
+  ADD KEY `memberId` (`memberId`);
+
+--
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`projectId`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userId`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `projectId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `projectmembership`
+--
+ALTER TABLE `projectmembership`
+  ADD CONSTRAINT `projectmembership_ibfk_1` FOREIGN KEY (`projectId`) REFERENCES `projects` (`projectId`),
+  ADD CONSTRAINT `projectmembership_ibfk_2` FOREIGN KEY (`memberId`) REFERENCES `users` (`userId`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
