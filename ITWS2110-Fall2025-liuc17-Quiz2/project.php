@@ -144,24 +144,22 @@ foreach ($projectsData as $proj) {
                 <p>📭 No projects yet. Create your first project above!</p>
             </div>
         <?php else: ?>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Project Name</th>
-                        <th>Description</th>
-                        <th>Members</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($projects as $pid => $p): ?>
-                        <tr class="<?php echo ($highlightId == $pid) ? 'highlight' : ''; ?>">
-                            <td><strong><?php echo htmlspecialchars($p['name']); ?></strong></td>
-                            <td><?php echo nl2br(htmlspecialchars($p['description'])); ?></td>
-                            <td><?php echo htmlspecialchars(implode(', ', $p['members'])); ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div class="project-cards">
+                <?php foreach ($projects as $pid => $p): ?>
+                    <div class="project-card <?php echo ($highlightId == $pid) ? 'highlight' : ''; ?>">
+                        <h3><?php echo htmlspecialchars($p['name']); ?></h3>
+                        <p class="description"><?php echo nl2br(htmlspecialchars($p['description'])); ?></p>
+                        <div class="members">
+                            <strong>Team Members:</strong>
+                            <ul>
+                                <?php foreach ($p['members'] as $member): ?>
+                                    <li><?php echo htmlspecialchars($member); ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         <?php endif; ?>
         
         <div style="text-align: center; margin-top: 30px;">

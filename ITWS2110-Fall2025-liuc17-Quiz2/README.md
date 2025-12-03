@@ -10,6 +10,7 @@ When completing this quiz, I made several specific design choices to align with 
     - The passwords are all stored by generating a random salt with random_bytes() and hashing using hash("sha256", $salt . $password) to secure the passwords
     - The databse design uses AUTO_INCREMENT primary keys for userId and projectId
     - I structured the application into modular pages (login.php, register.php, index.php, project.php)
+    - I laid out all the projects in a card layout to make the information easily digestible
 
 # 3.2 - Handling No-Database Scenario
 If the site were accessed before any database existed, the system would detect this state during initialization. The MySQL/PHP lecture notes describe using SHOW TABLES or attempting a simple query to determine whether required tables exist before performing operations. Following this approach, the application would attempt to query the users table. If the query fails due to missing tables, the system would transition into an installation mode.

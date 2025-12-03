@@ -313,3 +313,88 @@ tr:last-child td {
     color: #999;
     font-style: italic;
 }
+
+/* Project Cards */
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.project-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
+}
+
+.project-card.highlight {
+    border-color: #ffd700;
+    background-color: #fffef5;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    animation: highlightFade 2s ease-in-out;
+}
+
+.project-card h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #667eea;
+}
+
+.project-card .description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    min-height: 50px;
+}
+
+.project-card .members {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.project-card .members strong {
+    color: #555;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.project-card .members ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-card .members li {
+    padding: 6px 0;
+    color: #666;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.project-card .members li:last-child {
+    border-bottom: none;
+}
+
+.project-card .members li:before {
+    content: "👤 ";
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .project-cards {
+        grid-template-columns: 1fr;
+    }
+}
